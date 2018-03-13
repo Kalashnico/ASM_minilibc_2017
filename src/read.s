@@ -1,13 +1,13 @@
 [BITS 64]
 
-global write
+global read
 
-write:
+read:
 	sub rsp, 8
 	mov rcx, rdx
 	mov rdx, rsi
 	mov esi, edi
-	mov edi, 1
+	mov edi, 0
 	mov eax, 0
 	syscall
 	add rsp, 8

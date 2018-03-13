@@ -17,8 +17,11 @@ CFLAGS += -W -Wall -Wextra -Werror
 LDFLAGS = -shared
 
 SRCS    = strlen.s              \
+	  strchr.s		\
           strcmp.s              \
           strncmp.s             \
+	  fork.s		\
+	  read.s		\
           write.s
 
 OBJS    = $(addprefix src/, $(SRCS:.s=.o))
