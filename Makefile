@@ -23,7 +23,10 @@ SRCS    = strlen.s              \
 	  memset.s		\
 	  memcpy.s		\
 	  memmove.s		\
+	  strstr.s		\
+	  strpbrk.s		\
 	  rindex.s		\
+	  strcspn.s		\
 	  fork.s		\
 	  read.s		\
           write.s
