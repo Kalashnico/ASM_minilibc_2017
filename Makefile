@@ -27,9 +27,6 @@ SRCS    = strlen.s              \
 	  strpbrk.s		\
 	  rindex.s		\
 	  strcspn.s		\
-	  fork.s		\
-	  read.s		\
-          write.s
 
 OBJS    = $(addprefix src/, $(SRCS:.s=.o))
 
