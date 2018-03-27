@@ -1,11 +1,11 @@
 [BITS 64]
 
-global read
+global write
 
-read:
+write:
 	  mov rcx, rdx
 	  xor eax, eax
 	  mov rdx, rsi
 	  mov esi, edi
-	  xor edi, edi
-	  syscall
+	  mov edi, 1
+	  jmp syscall

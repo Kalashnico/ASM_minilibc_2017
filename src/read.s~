@@ -8,4 +8,4 @@ read:
 	  mov rdx, rsi
 	  mov esi, edi
 	  xor edi, edi
-	  syscall
+	  jmp syscall
