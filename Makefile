@@ -7,7 +7,7 @@
 
 ASM     = nasm
 
-CC      = gcc
+CC      = ld
 
 RM      = rm -f
 
@@ -20,6 +20,7 @@ SRCS    = strlen.s              \
 	  strchr.s		\
           strcmp.s              \
           strncmp.s             \
+	  strcasecmp.s		\
 	  memset.s		\
 	  memcpy.s		\
 	  memmove.s		\

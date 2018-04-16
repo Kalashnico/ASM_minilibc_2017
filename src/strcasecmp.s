@@ -3,31 +3,36 @@
 global strcasecmp
 
 strcasecmp:
-	mov eax, 0
+	xor eax, eax
 	cmp rdi, rsi
-	je .L7
-	push rbp
-	push rbx
-	sub rsp, 8
-	mov rbp, rdi
-	mov rbx, rsi
-	call __ctype_tolower_loc
-	mov rdx, QWORD [rax]
-.L3:
-	movzx esi, BYTE [rbp+0]
-	add rbx, 1
-	movsx rax, sil
-	movsx rcx, BYTE [rbx-1]
-	mov eax, DWORD [rdx+rax*4]
-	sub eax, DWORD [rdx+rcx*4]
-	jne .L1
-	add rbp, 1
-	test sil, sil
 	jne .L3
+	jmp .L12
+.L6:
+	add rdi, 1
+	test cl, cl
+	je .L1
+.L3:
+	movzx eax, BYTE [rdi]
+	lea r8d, [rax-65]
+	lea edx, [rax+32]
+	mov ecx, eax
+	cmp r8d, 26
+	cmovb eax, edx
+	add rsi, 1
+	movzx edx, BYTE [rsi-1]
+	lea r9d, [rdx-65]
+	lea r8d, [rdx+32]
+	cmp r9d, 26
+	cmovb edx, r8d
+	sub eax, edx
+	je .L6
 .L1:
-	add rsp, 8
-	pop rbx
-	pop rbp
-	ret
-.L7:
 	rep ret
+.L12:
+	rep ret
+toLower:
+	lea edx, [rdi-65]
+	lea eax, [rdi+32]
+	cmp edx, 26
+	cmovnb eax, edi
+	ret
